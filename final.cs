@@ -1,13 +1,13 @@
 using System;
-using System.Collections.Generic;
 
 public class Program
 {
 	public static void Main()
 	{
+		//welcome
 		Console.WriteLine("Welcome to the Solar System");
 		
-		
+		//initializing
 		Planet Mercury = new Planet("Mercury", 1516, true);
 		Planet Venus = new Planet("Venus", 3760.4f, true);
 		Planet Earth = new Planet("Earth", 3958.8f, true);
@@ -21,9 +21,50 @@ public class Program
 
 		
 		//bug testing
-		Console.WriteLine(Earth.getName());
-		Console.WriteLine(solarSystem[2].getSize());
-		Saturn.Stats();
+		
+		
+		//input
+		Console.WriteLine("what would you like to learn about?");
+		Console.WriteLine("Suggested Topics: List Planets, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune");
+		String input = Console.ReadLine();
+		input.ToLower();
+		
+		switch (input){
+				
+			case "list planets":
+				for(int i = 0; i < solarSystem.Length - 1;i++){
+					Console.Write(solarSystem[i].getName() + ", ");
+				}
+				Console.Write(solarSystem[solarSystem.Length - 1].getName());
+				break;
+			case "mercury":
+				Mercury.Stats();
+				break;
+			case "venus":
+				Venus.Stats();
+				break;
+			case "earth":
+				Earth.Stats();
+				break;
+			case "mars":
+				Mars.Stats();
+				break;
+			case "jupiter":
+				Jupiter.Stats();
+				break;
+			case "saturn":
+				Saturn.Stats();
+				break;
+			case "uranus":
+				Uranus.Stats();
+				break;
+			case "neptune":
+				Neptune.Stats();
+				break;	
+			default:
+				Console.WriteLine("not acceptable input");
+				break;
+		}
 	}
 }
 
