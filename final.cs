@@ -16,6 +16,7 @@ public class Program
 		Planet Saturn = new Planet("Saturn", 36184f, false); //
 		Planet Uranus = new Planet("Uranus", 15759f, false); //
 		Planet Neptune = new Planet("Neptune", 15299f, false); //
+		bool Exit = false;
 		
 		Planet[] solarSystem = {Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune};
 
@@ -28,8 +29,8 @@ public class Program
 		Console.WriteLine("Suggested Topics: List Planets, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune");
 		String input = Console.ReadLine();
 		input.ToLower();
-		
-		switch (input){
+		while(!Exit){
+			switch (input){
 				
 			case "list planets":
 				for(int i = 0; i < solarSystem.Length - 1;i++){
@@ -60,11 +61,18 @@ public class Program
 				break;
 			case "neptune":
 				Neptune.Stats();
-				break;	
+				break;
+				
+			case "break":
+				Exit = true;
+				break;
+				
 			default:
 				Console.WriteLine("not acceptable input");
 				break;
+			}
 		}
+		Console.WriteLine("This Program has been exited!");
 	}
 }
 
@@ -114,3 +122,4 @@ class Planet
 		Console.WriteLine("These are the stats for " + name + "\nsize(radius): " + this.getSize() + "\nis it a solid: " + isSolid);
 	}
 }
+
