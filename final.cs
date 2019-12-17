@@ -18,10 +18,9 @@ public class Program
 		Planet Neptune = new Planet("Neptune", 15299f, false); //
 		bool Exit = false;
 		
-		Planet[] solarSystem = {Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune};
-
 		
-		//bug testing
+		//array of all planet classes initialized above.
+		Planet[] solarSystem = {Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune}; 
 		
 		
 		//input
@@ -29,9 +28,12 @@ public class Program
 		Console.WriteLine("Suggested Topics: List Planets, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune");
 		String input = Console.ReadLine();
 		input.ToLower();
-		while(!Exit){
+		
+		//exit is a bool value that exits the while loop when set true
+		while(!Exit){ 
+			
+			//input is a String variable
 			switch (input){
-				
 			case "list planets":
 				for(int i = 0; i < solarSystem.Length - 1;i++){
 					Console.Write(solarSystem[i].getName() + ", ");
@@ -63,7 +65,7 @@ public class Program
 				Neptune.Stats();
 				break;
 				
-			case "break":
+			case "break": // exits while loop
 				Exit = true;
 				break;
 				
@@ -76,7 +78,9 @@ public class Program
 	}
 }
 
-class Planet
+//class Planet used in initializing of planets and the solarSystem array
+
+class Planet 
 {
 	private String name;
 	private float size;
